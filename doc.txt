@@ -1,2 +1,0 @@
-bundle exec asciidoctor-revealjs .\docker-rex-v2.adoc
-
