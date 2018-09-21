@@ -1,6 +1,6 @@
 # BRED Factory DevOps - Rentrée DevOps : retours d'expérience
 
-Les slides sont générés à l'aide de l'outil **AsciiDoctor** et le plugin associé permettant de
+Les slides sont générées à l'aide de l'outil **AsciiDoctor** et le plugin associé **AsciiDoctor-RevealJS** permettant de
 générer la présentation au format **reveal.js**.
 
 
@@ -8,17 +8,17 @@ générer la présentation au format **reveal.js**.
 
 Il convient au préalable d'installer un [Runtime Ruby](https://www.ruby-lang.org/fr/ "Runtime Ruby").
 
-Merci de bien vouloir penser à créer une variable d'environnement `RUBY_HOME` puis de modifier le `PATH`
-en ajoutant le chemin `%RUBY_HOME%/bin` sous **Linux** (ou `$RUBY_HOME\bin` sous **Windows**).
+Créer une variable d'environnement `RUBY_HOME` puis modifier le `PATH` en ajoutant le chemin `%RUBY_HOME%/bin` sous **Linux** (ou `$RUBY_HOME\bin` sous **Windows**).
 
 
 ### Installer AsciiDoctor
 
-Pour installer AsciiDoctor, lancer la commande `gem` suivante :
+Pour installer **AsciiDoctor**, lancer la commande `gem` suivante :
 
     $ gem install asciidoctor
 
-Si vous vous trouvez derrière un proxy d'entreprise, penser à paramétrer les deux variables d'environnements `HTTP_PROXY`
+
+Si vous vous trouvez derrière un proxy d'entreprise, pensez à paramétrer les deux variables d'environnements `HTTP_PROXY`
 et `http_proxy`.
 
 
@@ -32,9 +32,10 @@ Si tout se passe bien, la log devrait être proche de celle-ci :
 
 ### Installer Bundler
 
-Pour installer Bundler, de la même manière, lancer la commande `gem` suivante :
+**Bundler** s'installe de la même manière :
 
     $ gem install bundler
+
 
 Si tout se passe, la log devrait être proche de celle-ci :
 
@@ -61,7 +62,7 @@ Installer les `gems` dans le projet :
     $ bundle --path=.bundle/gems --binstubs=.bundle/.bin
 
 
-Récupérer la version **3.6.0** de **reveal.js** :
+Récupérer la version **3.3.0** de **reveal.js** :
 
     $ git clone -b 3.3.0 --depth 1 https://github.com/hakimel/reveal.js.git
 
