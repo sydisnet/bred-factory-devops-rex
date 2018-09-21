@@ -1,0 +1,657 @@
+= Pratiquer *DevOps* : Une aventure humaine
+Sébastien Hébert <sebastien.hebert@sydisnet.fr>
+// classic AsciiDoctor attributes
+:icons: font
+:imagesdir: images
+:customcss: styles/custom.css
+//:customcss: styles/myCustomCSS.css
+// Despite the warning of the documentation, https://github.com/asciidoctor/asciidoctor-reveal.js, highlight.js syntax highlighting WORKS, BUT, you need to explicitly set the highlighter using the below attribute
+// see http://discuss.asciidoctor.org/Highlighting-source-code-for-reveal-js-backend-td2750.html
+:source-highlighter: highlightjs
+// revealjs attributes
+:revealjs_theme: white
+:revealjs_slideNumber: true
+
+
+[quote]
+____
+Sébastien Hébert
+____
+
+// Basic presentation with speaker notes
+
+// First slide has a CSS customization of its title, using a Slide State (see https://github.com/asciidoctor/asciidoctor-reveal.js/tree/master#slide-state)
+==  Ad astra per aspera
+
+* Inscription inscrite sur le monument à la mémoire de _l'équipage_ d'*Apollo 1*.
+* Signifie *_Vers les étoiles à travers les difficultés_*.
+
+
+== *Bonjour* à tous
+
+*icon:coffee[]* Sébastien Hébert
+
+*icon:user-md[]* Dans la santé
+
+*icon:code[]* Informaticien
+
+*icon:twitter[]* @sydisnet
+
+*icon:github[]* github.com/sydisnet
+
+
+== Agenda
+
+icon:clock-o[] *DevOps* en 5 minutes
+
+icon:clock-o[] Les *peurs* liées à DevOps
+
+icon:clock-o[] Les *racines* de DevOps
+
+icon:clock-o[] Une culture *disruptive*... pour le *Management* aussi
+
+[NOTE.speaker]
+--
+DevOps fait peur car la méthode est ambivalente.
+
+Si les Dev et les Ops peuvent se sentir prêts à s'essayer à la méthode, le management à la française n'est pas complètement prêt.
+--
+
+
+== Qui pratique *DevOps* ?
+
+[NOTE.speaker]
+--
+Questions aux développeurs :
+Qui est développeur ?
+Qui fait du stand-up meeting tous les jours ?
+Qui fait du pair-programming régulièrement ?
+Qui fait du TDD ? et si oui vos testeurs/product owner utilisent-ils Gherkin pour décrire les critères d'acceptation de vos User Stories?
+
+Qui est exploitant ?
+Déployez-vous dans le cloud ?
+Utilisez-vous Docker ? Et Kubernetes ?
+Avez-vous déjà réussi à déployer en production une fois par an ? par trimestre ? par mois ? par semaine ? par jour ?
+--
+
+
+== Partie 1 - *DevOps* en 5 minutes
+
+== Définition 1
+
+[quote, Wikipédia]
+____
+*Mouvement* en _ingénierie informatique_ et *pratique technique* visant à l'_unification du développement logiciel_ (*DEV*) et de l'_administration des infrastructures_ informatiques (*OPS*), notamment l'administration système.
+____
+
+
+== Définition 2
+
+[quote, Sopra, Livre Blanc "Réussir sa stratégie digitale"]
+____
+*Méthode* visant à *aligner* l'ensemble des *équipes* du système d'information sur un *objectif business commun*.
+____
+
+
+== Définition 3
+
+[quote, DevOps A Software Architect's Perspective, SEI Series]
+____
+*DevOps* is a set of *practices* intended to *reduce the time* between committing a change to a system and the change being placed into normal production, while ensuring high *quality*.
+____
+
+
+== *Idée* principale
+
+* Rapprocher le *développement* et la *production*.
+* Chacun doit *comprendre* et *collaborer* avec _l'autre_.
+
+TIP: *Objectif :* _Accélérer le `flux` de mise en production, de l'expression des besoins par les métiers jusqu'à son exploitation sur
+les serveurs, de manière ``continue``_.
+
+
+== Motivation
+
+* Réduire le *Time-To-Market*
+* *Innovation* rapide
+* Centré sur les besoins *utilisateurs*
+
+
+== Commencer *petit* pour mieux *grandir*
+
+* *Prototype* (Minimum Viable Product) puis *Industrialisation* (DevOps)
+* Travailler *autrement*, s'appuyer sur les nouveaux usages issus de l'_Internet_ (*Cloud* as Platform)
+
+
+== Les *caractéristiques*
+
+* Importance de la *Qualité* du changement déployé,
+* Processus *automatisé* : *Build* et *Delivery* pipelines.
+* *Cycles* courts,
+* Plus *vite*, plus *rapide*, plus *souvent*.
+
+[NOTE.speaker]
+--
+Importance de la Qualité du changement déployé dans le système.
+
+Processus automatisé :
+* Le build (Build Pipeline) commence par un commit dans le code source et se termine par la livraison de nouveaux artéfacts dans un dépôt.
+* Le déploiement (Delivery Pipeline) du changement induit par la livraison de ces artéfacts, de la qualification  (Automated Acceptance Tests, UAT, Capacity Tests, System Tests) jusqu'à la mise en production.
+
+Cycles courts – Fournit un maximum de valeur dès le début et obtenir un feedback rapide.
+Déploiements – Plus petits, plus rapides, plus fréquents
+--
+
+[%notitle]
+== Le *cycle de vie* de DevOps
+
+image::devops-cycle.png[canvas, size=contain]
+
+
+== Difficile à décrire
+
+* Courant de *pensée*,
+* *Culture* différente,
+* *Casser* des barrières,
+* Autant de *variantes* que d'entreprises qui s'y essaient,
+* Des *pratiques* et des *outils*.
+
+[NOTE.speaker]
+--
+Plusieurs variantes :
+
+DevSecOps
+BizDevOps
+--
+
+
+== Des *pratiques* et des *outils*...
+
+* Approche _centrée sur les objectifs_, notamment la réduction du *Time To Market*,
+* Trop souvent présenté sous l'*angle technique*, c.-à-d. les _exigences voulues_, les _architectures_ (microservices) et l'_organisation_ (processus, outils).
+
+
+[%notitle]
+== Agile Subway
+
+image::https://s3.amazonaws.com/scrumorg-blog/wp-content/uploads/2014/08/22191819/AgileSubwayMap.png[canvas, size=contain]
+
+
+[%notitle]
+== Periodic Table of Devops Tools (Offline)
+
+image::https://xebialabs.com/assets/files/infographics/periodic-table-of-devops-tools.png[canvas, size=contain]
+
+
+== *Mais* pas que !
+
+CAUTION: Trop rarement présenté encore sous l'*angle humain*.
+
+
+== Et l'*humain* dans tout ça ?
+
+
+== Casser les barrières *psychologiques*
+
+image::confusion.png[Mur de la confusion, float="center", align="center"]
+
+
+[NOTE.speaker]
+--
+Les dev et les ops ne sont pas les seuls concernés.
+Les testeurs, les clients et le management
+--
+
+
+== Partie 2 - Les *Peurs* liées à DevOps
+
+== Pour certains *Ops*
+
+[quote, Un administrateur système]
+____
+Je ne suis pas un script !
+____
+
+
+== Le **C**hange **A**dvisory **B**oard devient *inutile*
+
+[quote, Le responsable de production]
+____
+Je ne contrôle pas ce qu'ils font !
+____
+
+
+== La *qualification* continue
+
+[quote, Un testeur à propos de Gherkin]
+____
+Et maintenant, on me parle de cornichon...
+____
+
+
+== **No** Ops
+
+CAUTION: *Externalisation* à outrance.
+
+
+== *The State of DevOps* 2018
+
+* *Enquête* mondiale,
+* *Du bas vers le haut* VS du haut vers le bas,
+* *Cinq* étapes ou *niveaux* de *maturité*.
+
+CAUTION: *Vision* (trop ?) *technique* quand même !
+
+[NOTE.speaker]
+--
+Ceux qui réussissent DevOps car les initiatives viennent de la base, rarement de la gouvernance.
+Puis effet de contamination...
+Quand ça vient d'en haut, les équipes n'y sont pas préparées (il ne suffit pas de suivre un séminaire mais vraiment de pratiquer au quotidien)
+--
+
+
+== DevOps peut *desservir* les *Ops*
+
+* Plus besoin de technicien dans la *chaîne d'approvisionnement*,
+* Plus besoin de sysadmin (provisionning et  maintenance automatisés),
+* Le *Dév* devient *admin* de son environnement de travail.
+
+
+== DevOps peut *desservir* les *Ops*
+
+[quote, Placide-Avorton, Developpez.com]
+____
+D'ici *5 à 10 ans*, les *Ops* pourraient devenir des *produits périmés* !
+____
+
+
+== DevOps, pour le *meilleur* ou le *pire* ?
+
+CAUTION: Une méthode *ambivalente* !
+
+* Le *côté positif* ne peut pas être séparé du *côté négatif* d'une même chose.
+
+
+== Notre monde *change* de plus en plus vite
+
+CAUTION: Efficicience, excellence, performance...
+
+CAUTION: Sommes-nous condamnés ?
+
+[NOTE.speaker]
+--
+Trouvé dans une salle de réunion
+
+Comme tout changement, il y a du bon et du mauvais...
+
+NoOps = Not Only Ops !
+
+Il y a 20 ans, le métier de développeur est mort car les usines logicielles vont remplacer les développeurs.
+--
+
+
+== DevOps viendrait du **L**ean **So**ftware **D**evelopment
+
+[quote, Frédéric Spinhirny, DRH Necker sur Youtube]
+____
+Lean Management : l'ambivalence de la technique...
+____
+
+
+[NOTE.speaker]
+--
+Frédéric a écrit deux ouvrages que je recommande :
+
+* L'homme sans politique (automatisation, robotisation et politique)
+* Éloge de la dépense (politique d'austérité VS les messages publicitaires qui poussent à la consumérisation)
+--
+
+
+== Partie 3 - Les *racines* de DevOps
+
+
+== Les méthodes *agiles*
+
+image::devops-agile.png[Méthodes agiles, float="center", align="center"]
+
+
+== Un REX *réussi*
+
+TIP: Use Case : application de gestion des marchés publics pour les achats !
+
+* Les *individus et leurs intéractions* avant tout,
+* Accepter les *remises en question* VS Égo,
+* L'importance d'avoir un *Product Owner* disponible.
+
+[NOTE.speaker]
+--
+Le *Product Owner* vient 30 minutes par jour de 16h00 à 16h30 et collabore en s'asseyant à côté des développeurs
+Les utilisateurs sont impliqués dans les tests dès le début, accompagnement au changement transparent
+Feedback rapide, quasiment en instantané (relancer l'application)
+Déploiement en mode KISS (Microsoft ClickOnce !) Ce n'est pas du DevOps mais c'est un premier pas !
+
+Acceptation du changement CDC et application en production ont au final complètement divergé mais l'application est utile !
+
+Logiciel opérationnel en 3 mois. Et la documentation ? inutile (pair-programming entre dév, code documenté, organisation des tests auto-décrivent ce qui est réèllement attendu)
+
+Nomination au trophées des achats car barrières ont été cassées (Achat + Juridique et même développement durable
+--
+
+
+== Une implémentation qui a *échoué*
+
+[quote, Un directeur d'entreprise]
+____
+Notre entreprise va devenir agile ! De cette façon, nous irons plus vite !
+____
+
+[NOTE.speaker]
+--
+C'est faux ! Agile au sens de souplesse pour vouloir dire Adaptable !
+--
+
+
+== Le *Lean* ?
+
+* Créer des *modèles de comportements* au travail,
+* Approche *systémique* car le *Lean* aborde le problème de l'*organisation du travail* sous toutes ses formes,
+* Pensée industrielle japonaise (*Toyota*).
+
+
+== *Principes* du Lean
+
+* Chasse permanente au *gaspillage* pour y remédier,
+* Redonner la *parole* à ceux qui sont *au plus proche* de la *production*
+
+TIP: *Objectif* : *Réduire* les principaux *dysfonctionnements* de la *production* en trouvant le *moyen* le plus *efficace* à chaque fois qu'un problème est rencontré...
+
+
+== *Implémentation* du Lean
+
+* État d'esprit,
+* Peut impacter la *motivation* du personnel,
+* Rechercher l'*efficacité* voire l'*efficience*,
+* Réduction des *délais*,
+* Amélioration de la *gestion des stocks*,
+* Technique de management et de production à *flux tendu*.
+
+
+[NOTE.speaker]
+--
+Impact sur la motivation peut être positif comme négatif !
+Dans le cas du Lean Management, il s'agit d'une technique de gestion et d'encadrement d'individus qui s'applique à l'industrie et aux plateformes logistiques telles qu'Amazon !
+--
+
+
+== Promesses du *Lean*
+
+* Accroitre la *productivité*,
+* Réduire les *pertes*.
+
+[NOTE.speaker]
+--
+En informatique, cela se traduit par :
+* réduire et optimiser les ressources autour du service IT à délivrer
+* Pas ou peu de place pour l'humain dans cette définition...
+--
+
+
+== Côté *obscur* du Lean
+
+TIP: Peut expliquer les *risques* liés à *DevOps*
+
+* *Ressources* travaillant de la *même manière* deviennent *intercheangeables* !
+* Roue de la qualité (*Deming*) : Plan-Do-*Check*-Act VS Plan-Do-*Study*-Act
+* Produire plus avec moins de personnel VS *Créer plus de valeur avec moins d'efforts*
+* Efficacité VS le *droit* et l'*éthique*
+
+
+[NOTE.speaker]
+--
+Logique de standardisation dans le Lean qui peut être dangereuse.
+Différences de culture entre le modèle japonais et occidental notamment les traductions peuvent conduire à des différences d'interprétation.
+C'est aussi vrai dans *DevOps*, il existe un schisme entre ceux qui prônent l'efficience et la fluidité du cycle de vie du service IT VS ceux qui estiment que rien n'est pas possible sans les individus !
+
+Exemple dans la santé :
+* Techniques de Lean Management dans la santé pour réduire le déficit des hôpitaux publics
+* Réduction des marges de manoeuvre drivée par des soucis d'économie
+* Destruction des conditions de travail
+--
+
+
+== Les évolutations du *Lean*
+
+image::devops-lean.png[Lean Thinking, float="center", align="center"]
+
+
+[NOTE.speaker]
+--
+Muri = Matelas de ressources, système efficace à l'aise mais pas nécessairement efficient
+Mura = Créer un tampon
+Ne pas dépasser 80% de la capacité de production de la machine pour encaisser les effects de variabilité !
+Toyota et la règle du 8-4-8-4 : Production / Amélioration ou rétrospectives ou finir un chantier en retard / Production / Amélioration du cadre et des outils de travail
+--
+
+
+== *Vitesse* et précipitation
+
+image::https://78.media.tumblr.com/d9b953580e9947de77e1d67f7f3d1025/tumblr_mw9dkwcAsG1s7ls89o1_500.gif[Le rythme doit rester durable, 80%, float="center", align="center"]
+
+
+== *Chaîne de production* Lean et *DevOps*
+
+TIP: Tout *service IT* peut-être assimilé à une *chaîne de production* qui peut sans cesse être *améliorée*...
+
+[NOTE.speaker]
+--
+* Limiter ressources
+* Limiter production
+* Atteindre un point d'équilibre
+* Équilibre économique (offre = demande)
+
+==> Motivé par l'efficience
+
+Équilibre financier ==> retrouver autonomie ==> retrouver marges de manoeuvre
+--
+
+
+== Le temple du *Lean Manufacturing*
+
+image::legacy-lean-manufacturing.png[DevOps is born, float="center", align="center"]
+
+
+== Le *parent* de DevOps
+
+image::devops-lsod.png[DevOps is born, float="center", align="center"]
+
+
+== DevOps, *liberté* et *pouvoir*
+
+* Le *DevOps* est *libérateur* car il casse des contraintes !
+* Distance possible entre les *humains* et le *service IT* à produire
+
+CAUTION: Curseur à trouver entre *Émancipation* et *Aliénation*
+
+
+== Tout n'est pas *noir*
+
+TIP: Aller sur le *Gemba* !
+
+* Là où les choses se passent ! C'est-à-dire le *terrain*, la *production*.
+
+* S'intéresser aux *conditions de travail* de ceux qui font !
+
+
+[NOTE.speaker]
+--
+* Seule la production créé de la VA, ne faut-il pas améliorer les conditions de travail
+* Si on s'intéresse uniquement à ceux qui produisent, quid des managers ?
+* Ne faut-il pas réorienter les politiques du management pour s'intéresser à ceux qui produisent vraiment ?
+* Réduire strates de contrôle pour redistribuer des ressources aux couches plus basses dans la hiérachie qui produisent !
+--
+
+
+== Partie 4 - Une méthode *disruptive*
+
+== Un changement *culturel*
+
+* Tout le monde *participe* !
+* Chacun pour soi VS *collaboration*
+* *Apprendre, grandir, former* les autres, se former par l'*expérimentation*
+* Peur de l'échec (rechercher les coupables) VS *essayer* (_Fail fast, fail often !_)
+
+[NOTE.speaker]
+--
+Nous sommes formatés pour *ne pas échouer* !
+Culture MOA / MOE à la française constitue un frein
+--
+
+
+== Pas que les *Dév* et les *Ops*
+
+CAUTION: Les managers peuvent se sentir inutiles !
+
+* *DevOps* est basé sur la *confiance* des équipes,
+* Autonomie VS *perte de pouvoir*
+
+
+== Le *Manager* doit trouver sa place
+
+image::animation.gif[Les Managers sont nécessaires, 70%, float="center", align="center"]
+
+
+== *Facteurs d'échec* du management
+
+* Continuer à *se mêler de technique* ou d'apprendre leur métier aux informaticiens
+* *Vision centrée* sur l'*objectif* à atteindre, et non sur les *membres de l'équipe*
+* Mesurer la *valeur individuelle* de chaque membre de l'équipe (approche individualiste) plutôt que la *valeur de l'équipe* dans son ensemble
+
+
+== *Facteurs d'échec* du management
+
+* Faire attention à la forme ! (ne pas froisser, bienveillance, empathie) et être clair sur ce qui est attendu
+* Ne pas protéger l'équipe quand elle se plante (*courage*)
+* *Leadership* VS Directif !
+* *Fuir* les *difficultés* rencontrées n'apaise rien !
+
+
+[NOTE.speaker]
+--
+Ne pas diriger (privilégier le modèle délégatif - confiance -, participatif - rendre autonome) et de la même manière éviter le modèle persuasif !
+--
+
+
+== Le problème avec le *Management*
+
+* Recherche de *coupables*
+* *Ne pas travailler ensemble* (avec son équipe ET les autres managers)
+* *Chercher à résoudre* les problèmes plutôt que de prendre le temps d'observer et de laisser les experts (équipes qui savent mieux que vous) résoudre les problèmes par eux-mêmes
+* *Accepter* la *non-perfection* (définition de *Done* !)
+* Ne pas chercher les pistes d'amélioration avec les autres managers (*éviter les silos*)
+
+
+[NOTE.speaker]
+--
+Le management soit se réformer !
+Le modèle Pièce à Pièce privilégie un service incomplet mais opérationnel plutôt que le 0-défaut
+--
+
+
+== Cinq Propositions de *solutions*
+
+== 1. Apprendre à *Observer*
+
+TIP: Pratiquer le *Gemba Walks* / Aller sur le terrain de son équipe avec le *5S*.
+
+
+== Les 5S
+
+* Supprimer l'inutile/adapter l'espace de travail,
+* Situer/Obeya,
+* Nettoyer/soulever le tapis,
+* Standardiser les règles/KISS,
+* Respecter et faire émerger les idées,
+
+
+== 2. Donner du *sens aux actions* de l'équipe
+
+* Qui est mon client ?
+* Qu'attend-il ?
+* Quel est mon processus ?
+* Quelle est la contribution de l'équipe ?
+* Quelles sont les attentes de l'équipe ?
+
+
+[NOTE.speaker]
+--
+* Mesurer la contribution de l'équipe au regard de l'attente du client et de la performance de l'entreprise
+* Vérifier l'alignement business sur les attentes du client MAIS AUSSI de l'équipe
+--
+
+
+== Favoriser la communication
+
+* *Sécuriser* les *éléments en entrée de son processus*,
+* Garantir une *performance* durable,
+* Essayer le *management visuel*.
+
+
+== Rythme durable
+
+image::https://c1.staticflickr.com/8/7025/6435650015_4053a61bb7_b.jpg[Rythme durable, 80%, float="center", align="center"]
+
+
+== 3. *Animer* l'équipe
+
+* *Échanger* avec l'équipe en toute *transparence*,
+* Disposer d'un *management visuel* le plus à jour,
+* *Favoriser* la *communication* interne,
+* Faire *tourner les responsabilités*,
+* Donner les moyens au *Scrum Master* de réussir !
+
+
+== Management visuel
+
+image::https://i.pinimg.com/originals/f8/e3/17/f8e3170248fba1a60b9184d852cbf8c5.jpg[Management visuel, 80%, float="center", align="center"]
+
+
+
+== 4. *Déléguer* la résolution de problèmes simples
+
+* Getting Things Done !
+* *Développer l'autonomie* de l'équipe,
+* *Éduquer le manager* à apprendre à son équipe à résoudre ses problèmes par elle-même,
+* Problème complexe, création d'une équipe chantier.
+
+
+== 5. Ne pas oublier les *Rétrospectives*
+
+* *Communiquer* avec la** autres managers** sur les problèmes liés aux entrants,
+* *Écouter* les *propositions* d'amélioration de l'*équipe*
+
+
+== Synthèse
+
+image::devops-initiative.png[Essayer DevOps, float="center", align="center"]
+
+
+== Quelques réflexions sur l'*implémentation*
+
+* De la *base vers le haut* ou du _haut vers le bas_ ?
+* Réinventer la *confiance* ou les _groupes utilisateurs_
+* Faire attention à l'*Autonomie* des équipes et penser à compenser la _perte de pouvoir_ des managers
+* L'éducation des *stakeholders* (cursus *MIAGE* à La Sorbonne)
+* Les *rétrospectives* sont capitales !
+
+
+== Think *different*, think *DevOps*
+
+
+== Conclusion
+
+* Penser à *l'équipe* avant la _technique_.
+* *Des hommes et leurs intéractions* plus que des _processus et outils_ !
+
+image::https://upload.wikimedia.org/wikipedia/commons/e/e1/Apollo1-Crew_01.jpg[Équipage Apollo 1, 40%, float="center", align="center"]
+
+
